@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="title_text_size">14sp</dimen>
+    <dimen name="content_text_size">16sp</dimen>
+    //2.6 ; 12
+    //(62, 24) (284, 25)
+    <dimen name="menu_title_text_height">25dp</dimen>
+    <dimen name="menu_title_text_width">50dp</dimen>
+    <dimen name="item_height">26dp</dimen>
+    <dimen name="item_width">180dp</dimen>
+
+</resources>

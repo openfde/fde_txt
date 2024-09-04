@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Notepad</string>
+    <string name="test_text">
+    拥塞控制：拥塞控制，就是在网络中发生拥塞时，减少向网络中发送数据的速度，防止造成恶性循环；同时在网络空闲时，提高发送数据的速度，最大限度地利用网络资源。\n\n
+    拥塞窗口（cwnd）：`TCP`发送但还没有得到确认的报文的序号都在这个区间，表示发送方在未收到接收方确认（ACK）的情况下可以发送的最大数据量，是发送方维护的一个的状态变量，它会根据网络的拥塞程度动态变化的\n\n
+    慢启动门限（阈值）（ssthresh）：慢启动阶段，若`cwnd`的大小达到这个值，将转换到拥塞避免模式\n\n
+    往返时间（RTT）：发送方发送一个报文，到接收这个报文的确认报文所经历的时间\n\n
+    * 慢启动：当 `cwnd` &lt; `ssthresh` 时，使用慢启动算法，当发送方每收到一个 ACK，拥塞窗口 cwnd 的大小就会加 1，也就是说在一个往返时间 RTT 后，拥塞窗口大小应该翻倍（即慢启动过程中，拥塞窗口是指数增长的）\n
+    * 拥塞避免：当 `cwnd` >= `ssthresh` 时，就会使用「拥塞避免算法」，每当收到一个 ACK 时，cwnd 增加 1/cwnd，也就是说在一个往返时间 RTT 后，拥塞窗口大小应该 +1（即拥塞避免过程中，拥塞窗口时线性增长的）\n
+    * 拥塞发生（两种重传机制）\n
+      * 超时重传：若发送出一条数据段后，在规定时间内没有收到确认报文（丢失或时延太大），则可以认为网络出现了拥塞\n
+        * `ssthresh` 设为 `cwnd/2`\n
+        * `cwnd` 重置为 `1` （是恢复为 cwnd 初始化值，这里假定 cwnd 初始化值 1）\n
+        * 重新开始慢启动\n
+      * 快速重传：若连续收到接收方对同一条报文的三次冗余确认（也就是四次确认），则可以推测那条报文丢失，即发生了拥塞\n
+        原理：要求接收方每收到一个失序的报文段后就立即发出重复确认而不是等待自己发送数据时才捎带确认\n
+        * `cwnd = cwnd/2` ，也就是设置为原来的一半\n
+        * `ssthresh = cwnd`\n
+        * 进入快速恢复算法\n
+    * 快速恢复：快速重传和快速恢复算法一般同时使用，快速恢复算法是认为，你还能收到 3 个重复 ACK 说明网络也不那么糟糕，所以没有必要像普通 `RTO` 超时那么强烈\n
+      * 拥塞窗口 `cwnd = ssthresh + 3` （ 3 的意思是确认有 3 个数据包被收到了）\n
+      * 重传丢失的数据包\n
+      * 如果再收到重复的 ACK，那么 cwnd 增加 1\n
+      * 如果收到新数据的 ACK 后，把 cwnd 设置为第一步中的 ssthresh 的值，原因是该 ACK 确认了新的数据，说明从重复 ACK 时的数据都已收到，该恢复过程已经结束，可以回到恢复之前的状态了，也即再次进入
+</string>
+    <string name="title">未命名</string>
+
+    <string name="file">文件</string>
+    <string name="_new">新建</string>
+    <string name="new_window">新窗口</string>
+    <string name="open">打开</string>
+    <string name="save">保存</string>
+    <string name="save_as">另存为</string>
+    <string name="exit">退出</string>
+
+    <string name="edit">编辑</string>
+    <string name="undo">撤销</string>
+    <string name="cut">剪切</string>
+    <string name="copy">赋值</string>
+    <string name="paste">粘贴</string>
+    <string name="delete">删除</string>
+    <string name="select_all">全选</string>
+
+</resources>

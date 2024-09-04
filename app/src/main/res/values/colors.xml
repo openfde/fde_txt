@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="blue">#E60078D7</color>
+    <color name="colorPrimary">#0078D7</color>
+    <color name="light_blue_400">#FF29B6F6</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="gray_400">#FFBDBDBD</color>
+    <color name="gray_600">#FF757575</color>
+
+    <color name="title_hovered">#E5EAFF</color>
+    <color name="title_selected">#CCE8FF</color>
+    <color name="item_hovered">#91c9f7</color>
+    <color name="item_bg">#f2f2f2</color>
+    <color name="item_bg_stroke">#D7D7D7</color>
+
+    <color name="scrollbar_track">#F0F0F0</color>
+    <color name="scrollbar_thumb">#CDCDCD</color>
+    <color name="scrollbar_thumb_hovered">#A6A6A6</color>
+    <color name="scrollbar_thumb_selected">#606060</color>
+</resources>

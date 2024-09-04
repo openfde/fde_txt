@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--     Container for CustomTextView menuTitleTxt-->
+    <!--    <View-->
+    <!--        android:id="@+id/containerForCustomTextView"-->
+    <!--        android:layout_width="@dimen/menu_title_text_width"-->
+    <!--        android:layout_height="@dimen/menu_title_text_height"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <HorizontalScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent" />-->
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/menu_title_text_height"
+        android:background="#B3C8C8C8"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@null"
+        android:gravity="left|top"
+        android:inputType="textMultiLine"
+        android:text="@string/test_text"
+        android:textSize="@dimen/content_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/verticalTouchableScrollBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <com.fde.notepad.view.VerticalDragScrollBar
+        android:id="@+id/verticalTouchableScrollBar"
+        android:layout_width="16dp"
+        android:layout_height="0dp"
+        android:background="@color/scrollbar_track"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:id="@+id/fileMenuTitleTxt"
+        android:layout_width="@dimen/menu_title_text_width"
+        android:layout_height="@dimen/menu_title_text_height"
+        android:background="@drawable/bg_menu_title"
+        android:gravity="center"
+        android:text="@string/file"
+        android:textSize="@dimen/title_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fileRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/shadow"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@id/fileMenuTitleTxt"
+        app:layout_constraintTop_toBottomOf="@id/fileMenuTitleTxt" />
+
+    <TextView
+        android:id="@+id/editMenuTitleTxt"
+        android:layout_width="@dimen/menu_title_text_width"
+        android:layout_height="@dimen/menu_title_text_height"
+        android:background="@drawable/bg_menu_title"
+        android:gravity="center"
+        android:text="@string/edit"
+        android:textSize="@dimen/title_text_size"
+        app:layout_constraintStart_toEndOf="@id/fileMenuTitleTxt"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/editRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/shadow"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@id/editMenuTitleTxt"
+        app:layout_constraintTop_toBottomOf="@id/editMenuTitleTxt" />
+</androidx.constraintlayout.widget.ConstraintLayout>
