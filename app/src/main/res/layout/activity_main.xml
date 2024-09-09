@@ -61,15 +61,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/fileRecyclerView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:background="@drawable/shadow"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@id/fileMenuTitleTxt"
-        app:layout_constraintTop_toBottomOf="@id/fileMenuTitleTxt" />
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/fileRecyclerView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="1dp"-->
+<!--        android:background="@drawable/shadow"-->
+<!--        android:visibility="invisible"-->
+<!--        app:layout_constraintStart_toStartOf="@id/fileMenuTitleTxt"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/fileMenuTitleTxt" />-->
 
     <TextView
         android:id="@+id/editMenuTitleTxt"
@@ -82,13 +82,13 @@
         app:layout_constraintStart_toEndOf="@id/fileMenuTitleTxt"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/editRecyclerView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:background="@drawable/shadow"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@id/editMenuTitleTxt"
-        app:layout_constraintTop_toBottomOf="@id/editMenuTitleTxt" />
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/editRecyclerView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="1dp"-->
+<!--        android:background="@drawable/shadow"-->
+<!--        android:visibility="invisible"-->
+<!--        app:layout_constraintStart_toStartOf="@id/editMenuTitleTxt"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/editMenuTitleTxt" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

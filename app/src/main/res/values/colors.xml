@@ -10,10 +10,12 @@
     <color name="gray_400">#FFBDBDBD</color>
     <color name="gray_600">#FF757575</color>
 
+    <color name="menu_bg">#F2F2F2</color>
+    <color name="menu_bg_stroke">#CCCCCC</color>
     <color name="title_hovered">#E5EAFF</color>
     <color name="title_selected">#CCE8FF</color>
     <color name="item_hovered">#91c9f7</color>
-    <color name="item_bg">#f2f2f2</color>
+    <color name="item_bg">#F2F2F2</color>
     <color name="item_bg_stroke">#D7D7D7</color>
 
     <color name="scrollbar_track">#F0F0F0</color>

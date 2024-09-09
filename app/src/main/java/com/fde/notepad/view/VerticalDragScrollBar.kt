@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -17,6 +18,7 @@ class VerticalDragScrollBar @JvmOverloads constructor(
     private val TAG = "VerticalDragScrollBar"
     private var isHoverScrollBar = false
     private var isDragScrollBar = false
+    private var isFull = false
     private var allLength = 0
     private val rect = Rect()
     private val paint = Paint().apply {
@@ -39,6 +41,7 @@ class VerticalDragScrollBar @JvmOverloads constructor(
 //            TAG,
 //            "scrollBarY = $scrollBarY, scrollBarLength = $scrollBarLength, scrollBarBottom = ${scrollBarY + scrollBarLength}"
 //        )
+        isFull = height >= allLength
         // If the last calculated position is a decimal, it may not fill the scroll track,
         // and you need to add one to make it fill completely
         rect.set(0, scrollBarY, measuredWidth, scrollBarY + scrollBarLength + 1)
@@ -103,6 +106,6 @@ class VerticalDragScrollBar @JvmOverloads constructor(
         else if (isHoverScrollBar) paint.color =
             ContextCompat.getColor(context, R.color.scrollbar_thumb_hovered)
         else paint.color = ContextCompat.getColor(context, R.color.scrollbar_thumb)
-        canvas?.drawRect(rect, paint)
+        if(!isFull) canvas?.drawRect(rect, paint)
     }
 }

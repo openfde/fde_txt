@@ -7,9 +7,9 @@ class Utils {
     companion object {
         private val TAG = "Utils"
         val ALL_INVISIBLE = 0
-        val FIFE_VISIBLE = 1
+        val FILE_VISIBLE = 1
         val EDIT_VISIBLE = 2
-        val ALL_VISIBLE = (FIFE_VISIBLE + EDIT_VISIBLE)
+        val ALL_VISIBLE = (FILE_VISIBLE + EDIT_VISIBLE)
         fun isTouchPointInView(view: View, x: Int, y: Int): Boolean {
             val location = IntArray(2)
             view.getLocationOnScreen(location)
