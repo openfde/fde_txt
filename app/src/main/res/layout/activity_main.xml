@@ -34,7 +34,6 @@
         android:background="@null"
         android:gravity="left|top"
         android:inputType="textMultiLine"
-        android:text="@string/test_text"
         android:textSize="@dimen/content_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/verticalTouchableScrollBar"
@@ -61,15 +60,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/fileRecyclerView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="1dp"-->
-<!--        android:background="@drawable/shadow"-->
-<!--        android:visibility="invisible"-->
-<!--        app:layout_constraintStart_toStartOf="@id/fileMenuTitleTxt"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/fileMenuTitleTxt" />-->
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/fileRecyclerView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="1dp"-->
+    <!--        android:background="@drawable/shadow"-->
+    <!--        android:visibility="invisible"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/fileMenuTitleTxt"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/fileMenuTitleTxt" />-->
 
     <TextView
         android:id="@+id/editMenuTitleTxt"
@@ -82,13 +81,26 @@
         app:layout_constraintStart_toEndOf="@id/fileMenuTitleTxt"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/editRecyclerView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="1dp"-->
-<!--        android:background="@drawable/shadow"-->
-<!--        android:visibility="invisible"-->
-<!--        app:layout_constraintStart_toStartOf="@id/editMenuTitleTxt"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/editMenuTitleTxt" />-->
+    <TextView
+        android:id="@+id/formatMenuTitleTxt"
+        android:layout_width="@dimen/menu_title_text_width"
+        android:layout_height="@dimen/menu_title_text_height"
+        android:background="@drawable/bg_menu_title"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/edit"
+        android:textSize="@dimen/title_text_size"
+        app:layout_constraintStart_toEndOf="@id/editMenuTitleTxt"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/editRecyclerView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="1dp"-->
+    <!--        android:background="@drawable/shadow"-->
+    <!--        android:visibility="invisible"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/editMenuTitleTxt"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/editMenuTitleTxt" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

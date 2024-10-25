@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Notepad</string>
     <string name="test_text">Test Text</string>
-    <string name="title">未命名</string>
+    <string name="untitled">untitled</string>
 
     <string name="file">File</string>
     <string name="_new">New</string>
@@ -19,6 +19,9 @@
     <string name="delete">Delete</string>
     <string name="select_all">Select All</string>
 
+    <string name="format">format</string>
+    <string name="font">font</string>
+
     <string name="hotkey_file" translatable="false">F</string>
     <string name="hotkey_new" translatable="false">Ctrl+N</string>
     <string name="hotkey_new_window" translatable="false">Ctrl+Shit+N</string>
@@ -27,11 +30,19 @@
     <string name="hotkey_save_as" translatable="false">Ctrl+Shift+S</string>
 <!--    <string name="hotkey_exit" translatable="false">Exit</string>-->
 <!--    <string name="hotkey_edit" translatable="false">Edit</string>-->
-<!--    <string name="hotkey_undo" translatable="false">Undo</string>-->
-<!--    <string name="hotkey_cut" translatable="false">Cut</string>-->
-<!--    <string name="hotkey_copy" translatable="false">Copy</string>-->
-<!--    <string name="hotkey_paste" translatable="false">Paste</string>-->
-<!--    <string name="hotkey_delete" translatable="false">Delete</string>-->
-<!--    <string name="hotkey_select_all" translatable="false">Select All</string>-->
+    <string name="hotkey_undo" translatable="false">Ctrl+Z</string>
+    <string name="hotkey_cut" translatable="false">Ctrl+X</string>
+    <string name="hotkey_copy" translatable="false">Ctrl+C</string>
+    <string name="hotkey_paste" translatable="false">Ctrl+V</string>
+    <string name="hotkey_delete" translatable="false">Del</string>
+    <string name="hotkey_select_all" translatable="false">Ctrl+A</string>
+
+    <string name="dialog_message">你想将更改保存到 %1$s 吗?</string>
+<!--    <string name="save"></string>-->
+    <string name="discard">Discard</string>
+    <string name="cancel">cancel</string>
+
+
+
 
 </resources>

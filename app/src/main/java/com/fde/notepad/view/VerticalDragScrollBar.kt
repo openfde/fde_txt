@@ -42,6 +42,7 @@ class VerticalDragScrollBar @JvmOverloads constructor(
 //            "scrollBarY = $scrollBarY, scrollBarLength = $scrollBarLength, scrollBarBottom = ${scrollBarY + scrollBarLength}"
 //        )
         isFull = height >= allLength
+//        Log.w(TAG, "isFull = $isFull")
         // If the last calculated position is a decimal, it may not fill the scroll track,
         // and you need to add one to make it fill completely
         rect.set(0, scrollBarY, measuredWidth, scrollBarY + scrollBarLength + 1)

@@ -1,4 +1,4 @@
-package com.fde.notepad
+package com.fde.notepad.menu
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.fde.notepad.R
 
 class ItemMenuAdapter(private val itemMenuList: List<ItemMenu>) :
     RecyclerView.Adapter<ItemMenuAdapter.ViewHolder>() {
@@ -18,7 +19,7 @@ class ItemMenuAdapter(private val itemMenuList: List<ItemMenu>) :
         }
 
         override fun onClick(view: View?) {
-            itemMenuList[adapterPosition].onClickListener
+            itemMenuList[adapterPosition].onClickListener.onClick(view)
         }
     }
 
