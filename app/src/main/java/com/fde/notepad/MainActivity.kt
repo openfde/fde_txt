@@ -33,10 +33,7 @@ import com.fde.notepad.provider.Utils.Companion.FILE_VISIBLE
 import com.fde.notepad.view.VerticalDragScrollBar
 import kotlinx.coroutines.launch
 import java.io.BufferedReader
-import java.io.FileOutputStream
 import java.io.InputStreamReader
-import java.io.OutputStream
-import java.io.OutputStreamWriter
 
 
 /* *
@@ -58,6 +55,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mFileRecyclerView: RecyclerView
     private lateinit var mEditRecyclerView: RecyclerView
     private var mUri: Uri? = null
+    private var mDocTitle: String? = null
     private var mDocPath: String? = null
 
     private lateinit var mContentTxt: EditText
@@ -74,14 +72,6 @@ class MainActivity : AppCompatActivity() {
     private var shouldFinish = false
     private var shouldClear = false
 
-    //    private val handler = Handler(Looper.getMainLooper())
-//    private val runnable = object : Runnable {
-//        override fun run() {
-//            Log.w(TAG, "run~")
-//            Log.w(TAG, "mContentText.height = ${mContentTxt.layout.height}")
-//            handler.postDelayed(this, 1000)
-//        }
-//    }
     private val scrollListener = object : ScrollListener {
 
         override fun scrollYBy(y: Int) {
@@ -96,7 +86,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,9 +99,6 @@ class MainActivity : AppCompatActivity() {
         init()
         bindScrollToText()
         registerLauncher()
-//        mFileRecyclerView = findViewById(R.id.fileRecyclerView)
-//        mEditRecyclerView = findViewById(R.id.editRecyclerView)
-//        mContentTxt.setHorizontallyScrolling(true)
 
         setOnTouchListener(mFileMenuTitleTxt, FILE_VISIBLE)
         setOnTouchListener(mEditMenuTitleTxt, EDIT_VISIBLE)
@@ -141,7 +127,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     var mLength = 0
     private fun registerLauncher() {
         openLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
@@ -154,14 +139,9 @@ class MainActivity : AppCompatActivity() {
                     }
                     mLength = mContentTxt.text.toString().toByteArray().size
                     saveTitle(Utils.getTitle(uri.path))
-//                    Log.w(TAG, "uri = $mUri")
-//                    val filePath = uri.path
-//                    Log.w(TAG, "uri.path = ${uri.path}")
-//                    Log.w(TAG, "fileName = ${filePath?.substring(filePath.lastIndexOf("/") + 1)}")
-//                    val fileName = filePath?.substring(filePath.lastIndexOf("/") + 1)
-//                    title = fileName
                 }
             }
+
         }
 
         saveLauncher =
@@ -173,11 +153,8 @@ class MainActivity : AppCompatActivity() {
                     mUri = uri
                     isChanged = false
                     saveTitle(Utils.getTitle(uri.path))
-//                    Log.w(TAG, "mUri = $mUri")
                     tryClear()
                     tryFinish()
-//                    Log.w(TAG, "uri = $uri")
-//                    Log.w(TAG, "path = ${uri.path}")
 //                    if (shouldClear) {
 //                        mUri = null
 //                        mContentTxt.text.clear()
@@ -224,7 +201,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-//        handler.removeCallbacks(runnable)
     }
 
     fun bindScrollToText() {
@@ -262,17 +238,17 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("ClickableViewAccessibility")
     private fun init() {
         saveTitle(getString(R.string.untitled))
-        mDocPath = intent.getStringExtra("docPath")
         mUri = intent.data
-//        Log.w(TAG, "mDocPath = $mDocPath")
-//        Log.w(TAG, "mUri = $mUri")
-        if (mDocPath != null) {
-            mContentTxt.setText(FileUtils.readTextFromPath(mDocPath))
-            saveTitle(mDocPath!!)
-        } else if (mUri != null) {
+        if (mUri != null) {
             mContentTxt.setText(FileUtils.readTextFromUri(mUri, this))
-//            saveTitle(mUri.path)
+            saveTitle(Utils.getTitle(mUri?.path ?: ""))
+        } else if (mDocPath != null) {
+            mDocTitle = intent.getStringExtra("docTitle")
+            mDocPath = intent.getStringExtra("docPath")
+            saveTitle(mDocTitle)
+            mContentTxt.setText(FileUtils.readTextFromPath(mDocPath))
         }
+
         val fileView = LayoutInflater.from(this).inflate(R.layout.menu_layout, null, false)
         val editView = LayoutInflater.from(this).inflate(R.layout.menu_layout, null, false)
         mFileRecyclerView = fileView.findViewById(R.id.recyclerView)
@@ -432,42 +408,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun save() {
-        Log.w(TAG, "save()")
         if (!isChanged) return
         content = mContentTxt.text.toString()
-        Log.w(TAG, "content = $content")
         if (mUri == null && mDocPath == null) {
             saveLauncher.launch("$mTitle.txt")
         } else {
             try {
-//                var outputStream: OutputStream? = null
                 if (mUri != null) {
-//                    contentResolver.openOutputStream(mUri!!)?.use { outputStream ->
-//                        OutputStreamWriter(outputStream).use { writer ->
-//                            writer.write("") // 清空文件内容
-//                        }
-//                        outputStream.flush()
-//                    }
-//                    Log.w(TAG, "mLength = $mLength")
-//                    Log.w(TAG, "mUri != null")
-//                    Log.w(TAG, "mUri = $mUri")
                     FileUtils.clearFileContent(mUri, mLength, this)
                     FileUtils.writeTextToUri(mUri, content, this)
-//                    outputStream = contentResolver.openOutputStream(mUri!!)
-                }
-                else {
-//                    Log.w(TAG, "mDocPath = $mDocPath")
-//                    FileUtils.clearFileContent()
+                } else {
                     FileUtils.writeTextToPath(mDocPath, content, this)
-//                    outputStream = FileOutputStream(mDocPath, false)
                 }
-//                Log.w(TAG, "uri = $mUri")
-//                Log.w(TAG, "mDocPath = $mDocPath")
-//                OutputStreamWriter(outputStream).use { writer ->
-//                    writer.write(content)
-//                }
-//                outputStream?.flush()
-//                outputStream?.close()
                 isChanged = false
                 title = mTitle
                 tryClear()
@@ -536,9 +488,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun saveTitle(title: String) {
-        mTitle = title
-        this.title = title
+    fun saveTitle(title: String?) {
+        mTitle = title ?: getString(R.string.untitled)
+        this.title = if (mTitle.endsWith(".txt", ignoreCase = true)) {
+            mTitle.substringBeforeLast(".txt")
+        } else {
+            mTitle
+        }
     }
 
     fun onWindowDismissed(finishTask: Boolean, suppressWindowTransition: Boolean) = exit()

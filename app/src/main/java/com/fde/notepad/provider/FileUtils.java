@@ -51,6 +51,8 @@ import java.util.stream.Collectors;
 
 public class FileUtils {
 
+    public static final String TAG = "FileUtils";
+
     public static final String PATH_ID_DESKTOP = "/mnt/sdcard/Desktop/";
 
     public static final String OPEN_DIR = "OPEN_DIR";
@@ -617,7 +619,6 @@ public class FileUtils {
         }
         return null;
     }
-
 
     public static void copyFileToClipboard(Context context, Uri uri) {
         ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);

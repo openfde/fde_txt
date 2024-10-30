@@ -13,6 +13,7 @@ android {
     defaultConfig {
         applicationId = "com.fde.notepad"
         minSdk = 29
+        //noinspection ExpiredTargetSdkVersion
         targetSdk = 30
         versionCode = 100
         versionName = "100"
@@ -36,8 +37,8 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        viewBinding = true
+    lintOptions {
+        disable("ExpiredTargetSdkVersion")
     }
 }
 
@@ -48,8 +49,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.powerspinner)
-//    implementation(libs.androidx.activity)
-//    testImplementation(libs.junit)
-//    androidTestImplementation(libs.androidx.junit)
-//    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.activity)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
