@@ -51,11 +51,10 @@ android {
             if (this is com.android.build.gradle
                 .internal.api.ApkVariantOutputImpl
             ) {
-                this.outputFileName = "Notepad.apk"
+                this.outputFileName = "FDE-TXT.apk"
             }
         }
     }
-
 
 }
 
