@@ -1,3 +1,6 @@
+import java.text.SimpleDateFormat
+import java.util.Date
+
 plugins {
 //    alias(libs.plugins.android.application)
 //    alias(libs.plugins.jetbrains.kotlin.android)
@@ -40,6 +43,20 @@ android {
     lintOptions {
         disable("ExpiredTargetSdkVersion")
     }
+
+    android.applicationVariants.all {
+        val buildType = this.buildType.name
+        val date = SimpleDateFormat("yyyyMMddHHmmss").format(Date())
+        outputs.all {
+            if (this is com.android.build.gradle
+                .internal.api.ApkVariantOutputImpl
+            ) {
+                this.outputFileName = "Notepad.apk"
+            }
+        }
+    }
+
+
 }
 
 dependencies {
