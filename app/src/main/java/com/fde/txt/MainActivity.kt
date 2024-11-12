@@ -1,4 +1,4 @@
-package com.fde.notepad
+package com.fde.txt
 
 import android.annotation.SuppressLint
 import android.content.ClipData
@@ -24,13 +24,13 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.fde.notepad.menu.ItemMenu
-import com.fde.notepad.menu.ItemMenuAdapter
-import com.fde.notepad.provider.FileUtils
-import com.fde.notepad.provider.Utils
-import com.fde.notepad.provider.Utils.Companion.EDIT_VISIBLE
-import com.fde.notepad.provider.Utils.Companion.FILE_VISIBLE
-import com.fde.notepad.view.VerticalDragScrollBar
+import com.fde.txt.menu.ItemMenu
+import com.fde.txt.menu.ItemMenuAdapter
+import com.fde.txt.provider.FileUtils
+import com.fde.txt.provider.Utils
+import com.fde.txt.provider.Utils.Companion.EDIT_VISIBLE
+import com.fde.txt.provider.Utils.Companion.FILE_VISIBLE
+import com.fde.txt.view.VerticalDragScrollBar
 import kotlinx.coroutines.launch
 import java.io.BufferedReader
 import java.io.InputStreamReader

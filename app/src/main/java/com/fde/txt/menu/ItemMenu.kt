@@ -1,4 +1,4 @@
-package com.fde.notepad.menu
+package com.fde.txt.menu
 
 import android.view.View.OnClickListener
 

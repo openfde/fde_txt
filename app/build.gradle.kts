@@ -10,11 +10,11 @@ plugins {
 }
 
 android {
-    namespace = "com.fde.notepad"
+    namespace = "com.fde.txt"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.fde.notepad"
+        applicationId = "com.fde.txt"
         minSdk = 29
         //noinspection ExpiredTargetSdkVersion
         targetSdk = 30
@@ -24,13 +24,24 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+   android {
+        signingConfigs {
+            create("release") {
+                storeFile = file("../openfde.jks")
+                storePassword = "keyforcat"
+                keyAlias = "rootcloud"
+                keyPassword = "keyforcat"
+            }
+        }
+    
+        buildTypes {
+            getByName("release") {
+                signingConfig = signingConfigs.getByName("release")
+            }
+
+            getByName("debug") {
+                applicationIdSuffix = ".debug"
+            }
         }
     }
     compileOptions {
@@ -51,7 +62,7 @@ android {
             if (this is com.android.build.gradle
                 .internal.api.ApkVariantOutputImpl
             ) {
-                this.outputFileName = "FDE-TXT.apk"
+                this.outputFileName = "FDE_TXT.apk"
             }
         }
     }

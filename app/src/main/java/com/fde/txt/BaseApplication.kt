@@ -1,4 +1,4 @@
-package com.fde.notepad
+package com.fde.txt
 
 import android.annotation.SuppressLint
 import android.app.Application
