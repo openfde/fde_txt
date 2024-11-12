@@ -62,7 +62,7 @@ android {
             if (this is com.android.build.gradle
                 .internal.api.ApkVariantOutputImpl
             ) {
-                this.outputFileName = "FDE_TXT.apk"
+                this.outputFileName = "FDE_txt.apk"
             }
         }
     }
