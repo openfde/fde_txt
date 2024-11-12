@@ -1,4 +1,4 @@
-package com.fde.notepad.view
+package com.fde.txt.view
 
 import android.graphics.Canvas
 import android.view.MotionEvent

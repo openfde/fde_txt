@@ -1,4 +1,4 @@
-package com.fde.notepad.menu
+package com.fde.txt.menu
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.fde.notepad.R
+import com.fde.txt.R
 
 class ItemMenuAdapter(private val itemMenuList: List<ItemMenu>) :
     RecyclerView.Adapter<ItemMenuAdapter.ViewHolder>() {

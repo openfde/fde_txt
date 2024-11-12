@@ -1,4 +1,4 @@
-package com.fde.notepad
+package com.fde.txt
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.fde.notepad.provider
+package com.fde.txt.provider
 
 import android.view.View
 

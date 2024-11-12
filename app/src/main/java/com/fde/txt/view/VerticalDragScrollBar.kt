@@ -1,4 +1,4 @@
-package com.fde.notepad.view
+package com.fde.txt.view
 
 import android.content.Context
 import android.graphics.Canvas
@@ -9,8 +9,8 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.core.content.ContextCompat
-import com.fde.notepad.MainActivity
-import com.fde.notepad.R
+import com.fde.txt.MainActivity
+import com.fde.txt.R
 
 class VerticalDragScrollBar @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
