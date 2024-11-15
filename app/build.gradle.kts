@@ -12,12 +12,13 @@ plugins {
 android {
     namespace = "com.fde.txt"
     compileSdk = 33
+    buildToolsVersion("33.0.1")
 
     defaultConfig {
         applicationId = "com.fde.txt"
         minSdk = 29
         //noinspection ExpiredTargetSdkVersion
-        targetSdk = 30
+        targetSdk = 33
         versionCode = 100
         versionName = "100"
 
