@@ -21,10 +21,15 @@ class Utils {
         }
 
         fun getTitle(path: String?): String {
-            if (path == null) return ""
-            val start = maxOf(path.indexOf(PREFIX) + (PREFIX.length), path.lastIndexOf('/') + 1)
-            val end = maxOf(path.lastIndexOf('.'))
-            return path.substring(start, end)
+            try {
+                if (path == null) return ""
+                val start = maxOf(path.indexOf(PREFIX) + (PREFIX.length), path.lastIndexOf('/') + 1)
+                val end = maxOf(path.lastIndexOf('.'))
+                return path.substring(start, end)
+            } catch (e: Exception) {
+                e.printStackTrace();
+            }
+            return  "";
         }
 
 //        fun save(activity: AppCompatActivity, content: String) {
